@@ -167,6 +167,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrGetText with all
           "width": 200,
         },
       },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
+      },
     ],
     Array [
       Object {
@@ -183,6 +189,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrGetText with all
           "height": 400,
           "width": 200,
         },
+      },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
       },
     ],
   ],
@@ -213,6 +225,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrGetText with no 
           "height": 400,
           "width": 200,
         },
+      },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
       },
     ],
   ],

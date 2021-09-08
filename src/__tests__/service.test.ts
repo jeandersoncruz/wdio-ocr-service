@@ -158,7 +158,8 @@ describe('wdio-ocr-service', () => {
           androidRectangles: { foo: 'androidRectangles' },
           iOSRectangles: { foo: 'iOSRectangles' },
           reuseOcr: true
-        }
+        },
+        {}
       )
 
       expect(OcrGetText).toHaveBeenCalledWithSnapshot()
