@@ -100,7 +100,7 @@ function ocrGetData(options, tesseractOptions) {
                     start = process.hrtime();
                     if (!isTesseractAvailable) return [3 /*break*/, 8];
                     log.info('Using system installed version of Tesseract');
-                    return [4 /*yield*/, tesseract_1.getSystemOcrData({ filePath: filePath })];
+                    return [4 /*yield*/, tesseract_1.getSystemOcrData({ filePath: filePath }, tesseractOptions)];
                 case 7:
                     ocrData = _b.sent();
                     return [3 /*break*/, 10];
