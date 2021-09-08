@@ -6,6 +6,7 @@ import {
   OcrServiceConfig,
   SetValueOptions,
   WaitForTextDisplayedOptions,
+  TesseractOptions
 } from "../src/typings/types";
 
 declare global {
