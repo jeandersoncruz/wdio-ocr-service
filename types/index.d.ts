@@ -22,7 +22,7 @@ declare global {
       ): Promise<OcrGetElementPositionByText>;
 
       ocrGetText(
-        options?: GetTextOptions = {}
+        options?: GetTextOptions = {}, tesseractOptions?: TesseractOptions = {}
       ): Promise<string>;
 
       ocrSetValue(
