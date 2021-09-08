@@ -1,5 +1,5 @@
 import ocrGetData from '../utils/ocrGetData'
-import { Rectangles, ScreenSize } from '../typings/types'
+import { Rectangles, ScreenSize, TesseractOptions } from '../typings/types'
 
 interface OcrGetTextOptions {
   androidRectangles?:Rectangles;
@@ -10,8 +10,10 @@ interface OcrGetTextOptions {
   screenSize: ScreenSize;
 }
 
-export default async function ocrGetText(options: OcrGetTextOptions): Promise<string> {
-  const { text } = await ocrGetData(options)
+
+
+export default async function ocrGetText(options: OcrGetTextOptions, tesseractOptions?: TesseractOptions): Promise<string> {
+  const { text } = await ocrGetData(options, tesseractOptions)
 
   return text.replace(/\n\s*\n/g, '\n')
 }

@@ -3,7 +3,7 @@ import { writeFileSync } from 'fs'
 import { join } from 'path'
 import Jimp from 'jimp'
 import { getScreenshotSize } from './index'
-import { GetOcrData, Rectangles, ScreenSize } from '../typings/types'
+import { GetOcrData, Rectangles, ScreenSize, TesseractOptions } from '../typings/types'
 import createImage from './createImage'
 import { SERVICE_NAME } from './constants'
 import { getNodeOcrData, getSystemOcrData } from './tesseract'
@@ -24,7 +24,7 @@ interface OcrGetData extends GetOcrData {
 const log = logger(SERVICE_NAME)
 
 // @TODO: fix output
-export default async function ocrGetData(options: OcrGetDataOptions): Promise<OcrGetData> {
+export default async function ocrGetData(options: OcrGetDataOptions, tesseractOptions?: TesseractOptions): Promise<OcrGetData> {
   const {
     androidRectangles,
     iOSRectangles,

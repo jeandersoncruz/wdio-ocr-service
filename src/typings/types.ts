@@ -72,3 +72,10 @@ export interface GetOcrData {
   lines: Line[];
   words: Words[];
 }
+
+export interface TesseractOptions {
+  lang?: string,
+  oem?: number,
+  psm?: number,
+  presets?: Array<string>,
+}

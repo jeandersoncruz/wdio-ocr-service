@@ -3,7 +3,7 @@ import { createWorker, OEM, PSM } from 'tesseract.js'
 // @ts-ignore
 import { recognize } from 'node-tesseract-ocr'
 import { parseString } from 'xml2js'
-import { GetOcrData, Line, Words } from '../typings/types'
+import { GetOcrData, Line, Words, TesseractOptions } from '../typings/types'
 import { parseAttributeString } from './index'
 
 export function isTesseractAvailable(tesseractName: string = ''): boolean {
@@ -23,7 +23,7 @@ interface GetOcrDataOptions {
   filePath: string;
 }
 
-export async function getNodeOcrData(options: GetOcrDataOptions): Promise<GetOcrData|Error> {
+export async function getNodeOcrData(options: GetOcrDataOptions): Promise<GetOcrData | Error> {
   try {
     const { filePath } = options
     const jsonSingleWords: Words[] = []
@@ -53,7 +53,7 @@ export async function getNodeOcrData(options: GetOcrDataOptions): Promise<GetOcr
       composedBlocks = data.div.div
     })
 
-    if (!composedBlocks || composedBlocks.length === 0){
+    if (!composedBlocks || composedBlocks.length === 0) {
       throw Error('No text was found for the OCR, please verify the stored image.')
     }
 
@@ -123,19 +123,21 @@ export async function getNodeOcrData(options: GetOcrDataOptions): Promise<GetOcr
   }
 }
 
-export async function getSystemOcrData(options: GetOcrDataOptions): Promise<GetOcrData|Error> {
+export async function getSystemOcrData(options: GetOcrDataOptions, tesseractOptions?: TesseractOptions): Promise<GetOcrData | Error> {
   try {
+    const { lang, oem, psm, presets } = tesseractOptions || { lang: 'eng', oem: 1, psm: 3, presets: ['txt', 'alto'] }
+
     const { filePath } = options
     const jsonSingleWords: Words[] = []
     const jsonWordStrings: Line[] = []
     let composedBlocks: any = []
     let text: string = ''
     const result = await recognize(filePath, {
-      lang: 'eng',
-      oem: 1,
+      lang: lang,
+      oem: oem,
       // https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc
-      psm: 3,
-      presets: ['txt', 'alto'],
+      psm: psm,
+      presets: presets,
     })
 
     parseString(result, (error: Error, data) => {
@@ -147,7 +149,7 @@ export async function getSystemOcrData(options: GetOcrDataOptions): Promise<GetO
       composedBlocks = data.alto.Layout[0].Page[0].PrintSpace[0].ComposedBlock
     })
 
-    if (!composedBlocks || composedBlocks.length === 0){
+    if (!composedBlocks || composedBlocks.length === 0) {
       throw Error('No text was found for the OCR, please verify the stored image.')
     }
 
