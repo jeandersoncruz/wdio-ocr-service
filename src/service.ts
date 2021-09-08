@@ -12,6 +12,7 @@ import {
   ScreenSize,
   SetValueOptions,
   WaitForTextDisplayedOptions,
+  TesseractOptions
 } from './typings/types'
 import ocrWaitForTextDisplayed from './commands/ocrWaitForTextDisplayed'
 import { isTesseractAvailable } from './utils/tesseract'
@@ -76,8 +77,9 @@ export default class OcrService implements Services.ServiceInstance {
       }
     )
 
-    this._driver.addCommand('ocrGetText', (options: GetTextOptions = {}) => {
+    this._driver.addCommand('ocrGetText', (options: GetTextOptions = {}, tesseractOptions: TesseractOptions = {}) => {
       const { androidRectangles, iOSRectangles, reuseOcr } = options
+      const { lang, oem, psm, presets } = tesseractOptions
 
       return ocrGetText({
         androidRectangles,
@@ -86,7 +88,7 @@ export default class OcrService implements Services.ServiceInstance {
         reuseOcr: !!reuseOcr,
         ocrImagesPath: this._ocrImagesPath,
         screenSize,
-      })
+      }, { lang, oem, psm, presets })
     })
 
     this._driver.addCommand(
