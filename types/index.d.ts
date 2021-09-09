@@ -34,7 +34,8 @@ declare global {
 
       ocrWaitForTextDisplayed(
         selector: string,
-        options: WaitForTextDisplayedOptions = {}
+        options: WaitForTextDisplayedOptions = {},
+        tesseractOptions?: TesseractOptions = {}
       ): Promise<void>;
     }
 
