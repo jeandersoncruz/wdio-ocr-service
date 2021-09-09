@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var ocrGetText_1 = __importDefault(require("./ocrGetText"));
-function ocrWaitForTextDisplayed(options) {
+function ocrWaitForTextDisplayed(options, tesseractOptions) {
     return __awaiter(this, void 0, void 0, function () {
         var timeout, timeoutMsg;
         var _this = this;
@@ -60,7 +60,7 @@ function ocrWaitForTextDisplayed(options) {
                                         // Always use a clean OCR
                                         reuseOcr: false,
                                         screenSize: screenSize,
-                                    })];
+                                    }, tesseractOptions)];
                             case 1: return [2 /*return*/, (_a.sent()).includes(text)];
                         }
                     });

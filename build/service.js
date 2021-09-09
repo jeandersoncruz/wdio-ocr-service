@@ -114,9 +114,11 @@ var OcrService = /** @class */ (function () {
                                 screenSize: screenSize,
                             }, { lang: lang, oem: oem, psm: psm, presets: presets });
                         });
-                        this._driver.addCommand('ocrWaitForTextDisplayed', function (selector, options) {
+                        this._driver.addCommand('ocrWaitForTextDisplayed', function (selector, options, tesseractOptions) {
                             if (options === void 0) { options = {}; }
+                            if (tesseractOptions === void 0) { tesseractOptions = {}; }
                             var androidRectangles = options.androidRectangles, iOSRectangles = options.iOSRectangles, timeout = options.timeout, timeoutMsg = options.timeoutMsg;
+                            var lang = tesseractOptions.lang, oem = tesseractOptions.oem, psm = tesseractOptions.psm, presets = tesseractOptions.presets;
                             return ocrWaitForTextDisplayed_1.default({
                                 androidRectangles: androidRectangles,
                                 iOSRectangles: iOSRectangles,
@@ -126,7 +128,7 @@ var OcrService = /** @class */ (function () {
                                 text: selector,
                                 timeout: timeout,
                                 timeoutMsg: timeoutMsg,
-                            });
+                            }, { lang: lang, oem: oem, psm: psm, presets: presets });
                         });
                         this._driver.addCommand('ocrSetValue', function (selector, value, options) {
                             if (options === void 0) { options = {}; }
