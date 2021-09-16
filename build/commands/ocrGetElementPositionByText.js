@@ -44,7 +44,7 @@ var ocrGetTextPositions_1 = __importDefault(require("../utils/ocrGetTextPosition
 var fuzzySearch_1 = require("../utils/fuzzySearch");
 var constants_1 = require("../utils/constants");
 var log = logger_1.default(constants_1.SERVICE_NAME);
-function ocrGetElementPositionByText(data) {
+function ocrGetElementPositionByText(data, tesseractOptions) {
     return __awaiter(this, void 0, void 0, function () {
         var androidRectangles, iOSRectangles, isTesseractAvailable, ocrImagesPath, reuseOcr, screenSize, text, textPositions, matches, element, score, messageOne, messageTwo;
         return __generator(this, function (_a) {
@@ -58,7 +58,7 @@ function ocrGetElementPositionByText(data) {
                             ocrImagesPath: ocrImagesPath,
                             reuseOcr: reuseOcr,
                             screenSize: screenSize,
-                        })];
+                        }, tesseractOptions)];
                 case 1:
                     textPositions = _a.sent();
                     matches = fuzzySearch_1.fuzzyFind({

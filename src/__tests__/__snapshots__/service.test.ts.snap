@@ -16,6 +16,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrClickOnText with
         },
         "text": "click",
       },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
+      },
     ],
     Array [
       Object {
@@ -33,6 +39,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrClickOnText with
           "width": 200,
         },
         "text": "click",
+      },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
       },
     ],
   ],
@@ -64,6 +76,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrClickOnText with
           "width": 200,
         },
         "text": "click",
+      },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
       },
     ],
   ],
@@ -342,6 +360,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrWaitForTextDispl
         "timeout": undefined,
         "timeoutMsg": undefined,
       },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
+      },
     ],
     Array [
       Object {
@@ -360,6 +384,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrWaitForTextDispl
         "text": "ocrWaitForTextDisplayed",
         "timeout": 15,
         "timeoutMsg": "timeoutMsg",
+      },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
       },
     ],
   ],
@@ -392,6 +422,12 @@ exports[`wdio-ocr-service before hook should be able to call ocrWaitForTextDispl
         "text": "ocrWaitForTextDisplayed",
         "timeout": undefined,
         "timeoutMsg": undefined,
+      },
+      Object {
+        "lang": undefined,
+        "oem": undefined,
+        "presets": undefined,
+        "psm": undefined,
       },
     ],
   ],

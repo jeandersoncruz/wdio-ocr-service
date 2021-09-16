@@ -1,6 +1,6 @@
 import ocrGetData from './ocrGetData'
 import { getDprPositions } from './index'
-import { Line, Rectangles } from '../typings/types'
+import { Line, Rectangles, TesseractOptions } from '../typings/types'
 
 interface OcrGetTextPositionsOptions {
   androidRectangles?:Rectangles;
@@ -20,8 +20,9 @@ interface OcrGetTextPositions {
   text: string;
 }
 
-export default async function ocrGetTextPositions(options: OcrGetTextPositionsOptions): Promise<OcrGetTextPositions[]> {
-  const { dpr, lines } = await ocrGetData(options)
+export default async function ocrGetTextPositions(options: OcrGetTextPositionsOptions,
+  tesseractOptions?: TesseractOptions): Promise<OcrGetTextPositions[]> {
+  const { dpr, lines } = await ocrGetData(options, tesseractOptions)
 
   return (
     lines

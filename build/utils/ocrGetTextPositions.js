@@ -41,12 +41,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var ocrGetData_1 = __importDefault(require("./ocrGetData"));
 var index_1 = require("./index");
-function ocrGetTextPositions(options) {
+function ocrGetTextPositions(options, tesseractOptions) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, dpr, lines;
         return __generator(this, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, ocrGetData_1.default(options)];
+                case 0: return [4 /*yield*/, ocrGetData_1.default(options, tesseractOptions)];
                 case 1:
                     _a = _b.sent(), dpr = _a.dpr, lines = _a.lines;
                     return [2 /*return*/, (lines

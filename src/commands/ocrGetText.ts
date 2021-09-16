@@ -10,8 +10,6 @@ interface OcrGetTextOptions {
   screenSize: ScreenSize;
 }
 
-
-
 export default async function ocrGetText(options: OcrGetTextOptions, tesseractOptions?: TesseractOptions): Promise<string> {
   const { text } = await ocrGetData(options, tesseractOptions)
 

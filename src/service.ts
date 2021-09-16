@@ -62,8 +62,9 @@ export default class OcrService implements Services.ServiceInstance {
 
     this._driver.addCommand(
       'ocrClickOnText',
-      (selector: string, options: ClickOnTextOptions = {}) => {
+      (selector: string, options: ClickOnTextOptions = {}, tesseractOptions: TesseractOptions = {}) => {
         const { androidRectangles, iOSRectangles, reuseOcr } = options
+        const { lang, oem, psm, presets } = tesseractOptions
 
         return ocrClickOnText({
           androidRectangles,
@@ -73,7 +74,7 @@ export default class OcrService implements Services.ServiceInstance {
           ocrImagesPath: this._ocrImagesPath,
           screenSize,
           text: selector,
-        })
+        }, { lang, oem, psm, presets })
       }
     )
 
@@ -93,9 +94,10 @@ export default class OcrService implements Services.ServiceInstance {
 
     this._driver.addCommand(
       'ocrWaitForTextDisplayed',
-      (selector: string, options: WaitForTextDisplayedOptions = {}
+      (selector: string, options: WaitForTextDisplayedOptions = {}, tesseractOptions: TesseractOptions = {}
       ) => {
         const { androidRectangles, iOSRectangles, timeout, timeoutMsg } = options
+        const { lang, oem, psm, presets } = tesseractOptions
 
         return ocrWaitForTextDisplayed({
           androidRectangles,
@@ -106,7 +108,8 @@ export default class OcrService implements Services.ServiceInstance {
           text: selector,
           timeout,
           timeoutMsg,
-        })
+        },
+        { lang, oem, psm, presets })
       }
     )
 

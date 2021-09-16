@@ -177,7 +177,7 @@ describe('wdio-ocr-service', function () {
                                 androidRectangles: { foo: 'androidRectangles' },
                                 iOSRectangles: { foo: 'iOSRectangles' },
                                 reuseOcr: true
-                            }))];
+                            }, {}))];
                     case 2:
                         // @ts-ignore
                         _b.sent();
@@ -225,7 +225,7 @@ describe('wdio-ocr-service', function () {
                                 androidRectangles: { foo: 'androidRectangles' },
                                 iOSRectangles: { foo: 'iOSRectangles' },
                                 reuseOcr: true
-                            }))];
+                            }, {}))];
                     case 2:
                         // @ts-ignore
                         _b.sent();
@@ -323,7 +323,7 @@ describe('wdio-ocr-service', function () {
                                 reuseOcr: true,
                                 timeout: 15,
                                 timeoutMsg: 'timeoutMsg',
-                            }))];
+                            }, {}))];
                     case 2:
                         // @ts-ignore
                         _b.sent();

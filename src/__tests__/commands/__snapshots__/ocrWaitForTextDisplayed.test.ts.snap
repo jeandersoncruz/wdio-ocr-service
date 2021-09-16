@@ -15,6 +15,7 @@ exports[`ocrWaitForTextDisplayed should be able to wait for a text to be display
           "width": 1,
         },
       },
+      undefined,
     ],
   ],
   "results": Array [

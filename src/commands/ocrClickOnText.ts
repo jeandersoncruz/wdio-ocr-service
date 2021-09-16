@@ -1,6 +1,6 @@
 import ocrGetElementPositionByText from './ocrGetElementPositionByText'
 import { determineClickPoint } from '../utils'
-import { Rectangles, ScreenSize } from '../typings/types'
+import { Rectangles, ScreenSize, TesseractOptions  } from '../typings/types'
 
 interface OcrClickOnTextOptions {
   androidRectangles?:Rectangles;
@@ -13,8 +13,8 @@ interface OcrClickOnTextOptions {
   clickDuration?: Number;
 }
 
-export default async function ocrClickOnText(options: OcrClickOnTextOptions): Promise<void> {
-  const element = await ocrGetElementPositionByText(options)
+export default async function ocrClickOnText(options: OcrClickOnTextOptions, tesseractOptions?: TesseractOptions): Promise<void> {
+  const element = await ocrGetElementPositionByText(options, tesseractOptions)
   const { x, y } = determineClickPoint({ rectangles: element.dprPosition })
 
   await driver.performActions([

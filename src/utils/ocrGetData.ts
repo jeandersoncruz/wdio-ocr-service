@@ -72,7 +72,7 @@ export default async function ocrGetData(options: OcrGetDataOptions, tesseractOp
 
       if (isTesseractAvailable) {
         log.info('Using system installed version of Tesseract')
-        ocrData = await getSystemOcrData({ filePath })
+        ocrData = await getSystemOcrData({ filePath }, tesseractOptions)
       } else {
         log.info('Using NodeJS version of Tesseract')
         ocrData = await getNodeOcrData({ filePath })
@@ -109,7 +109,7 @@ export default async function ocrGetData(options: OcrGetDataOptions, tesseractOp
       driver.ocrData = parsedOcrData
 
       return parsedOcrData
-    } catch (e) {
+    } catch (e: any) {
       throw new Error(e)
     }
   }

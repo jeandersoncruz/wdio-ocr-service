@@ -1,4 +1,4 @@
-import { Rectangles, ScreenSize } from '../typings/types'
+import { Rectangles, ScreenSize, TesseractOptions } from '../typings/types'
 import ocrGetText from './ocrGetText'
 
 interface OcrWaitForTextDisplayedOptions {
@@ -13,7 +13,8 @@ interface OcrWaitForTextDisplayedOptions {
 }
 
 export default async function ocrWaitForTextDisplayed(
-  options: OcrWaitForTextDisplayedOptions
+  options: OcrWaitForTextDisplayedOptions,
+  tesseractOptions?: TesseractOptions
 ) {
   const { timeout, timeoutMsg } = options
 
@@ -30,7 +31,8 @@ export default async function ocrWaitForTextDisplayed(
           // Always use a clean OCR
           reuseOcr: false,
           screenSize,
-        })
+        },
+        tesseractOptions)
       ).includes(text)
     },
     {

@@ -14,7 +14,7 @@ declare global {
     interface Browser {
       ocrClickOnText(
         selector: string,
-        options: ClickOnTextOptions = {}
+        options: ClickOnTextOptions = {}, tesseractOptions?: TesseractOptions = {}
       ): Promise<void>;
 
       ocrGetElementPositionByText(

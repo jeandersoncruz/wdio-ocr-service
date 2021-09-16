@@ -1,7 +1,7 @@
 import logger from '@wdio/logger'
 import ocrGetTextPositions from '../utils/ocrGetTextPositions'
 import { fuzzyFind } from '../utils/fuzzySearch'
-import { Rectangles, ScreenSize } from '../typings/types'
+import { Rectangles, ScreenSize, TesseractOptions  } from '../typings/types'
 import { SERVICE_NAME } from '../utils/constants'
 
 const log = logger(SERVICE_NAME)
@@ -82,7 +82,7 @@ interface OcrGetElementPositionByText {
 }
 
 export default async function ocrGetElementPositionByText(
-  data: OcrGetElementPositionByTextOptions
+  data: OcrGetElementPositionByTextOptions, tesseractOptions?: TesseractOptions
 ): Promise<OcrGetElementPositionByText> {
   const {
     androidRectangles,
@@ -100,7 +100,7 @@ export default async function ocrGetElementPositionByText(
     ocrImagesPath,
     reuseOcr,
     screenSize,
-  })
+  }, tesseractOptions)
   const matches = fuzzyFind({
     textArray: textPositions,
     pattern: text,

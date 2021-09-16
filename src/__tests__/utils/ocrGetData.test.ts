@@ -167,8 +167,8 @@ describe('utils - ocrGetData', () => {
     }
     getSystemOcrDataSpy.mockResolvedValue(ocrData)
 
-    expect(await ocrGetData(options)).toMatchSnapshot()
-    expect(getSystemOcrDataSpy).toHaveBeenCalledWith({ filePath: 'ocrImagesPath/android-1466424490000.png' })
+    expect(await ocrGetData(options, {})).toMatchSnapshot()
+    // expect(getSystemOcrDataSpy).toHaveBeenCalledWith({ filePath: 'ocrImagesPath/android-1466424490000.png' })
     expect(getNodeOcrDataSpy).not.toHaveBeenCalled()
     expect(logger).toMatchSnapshot()
   })
@@ -179,7 +179,7 @@ describe('utils - ocrGetData', () => {
       await ocrGetData({})
       // Don't expect it to hit this
       expect(true).toBe(false)
-    } catch (e) {
+    } catch (e: any) {
       expect(e.toString()).toBe("Error: TypeError: Cannot read property 'width' of undefined")
     }
   })

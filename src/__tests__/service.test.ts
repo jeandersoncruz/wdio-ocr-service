@@ -105,7 +105,8 @@ describe('wdio-ocr-service', () => {
           androidRectangles: { foo: 'androidRectangles' },
           iOSRectangles: { foo: 'iOSRectangles' },
           reuseOcr: true
-        }
+        },
+        {}
       )
 
       expect(OcrGetElementPositionByText).toHaveBeenCalledWithSnapshot()
@@ -132,7 +133,8 @@ describe('wdio-ocr-service', () => {
           androidRectangles: { foo: 'androidRectangles' },
           iOSRectangles: { foo: 'iOSRectangles' },
           reuseOcr: true
-        }
+        },
+        {}
       )
 
       expect(OcrClickOnText).toHaveBeenCalledWithSnapshot()
@@ -188,7 +190,8 @@ describe('wdio-ocr-service', () => {
           reuseOcr: true,
           timeout: 15,
           timeoutMsg: 'timeoutMsg',
-        }
+        },
+        {}
       )
 
       expect(OcrWaitForTextDisplayed).toHaveBeenCalledWithSnapshot()

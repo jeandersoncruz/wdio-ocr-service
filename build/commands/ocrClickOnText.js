@@ -41,12 +41,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var ocrGetElementPositionByText_1 = __importDefault(require("./ocrGetElementPositionByText"));
 var utils_1 = require("../utils");
-function ocrClickOnText(options) {
+function ocrClickOnText(options, tesseractOptions) {
     return __awaiter(this, void 0, void 0, function () {
         var element, _a, x, y;
         return __generator(this, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, ocrGetElementPositionByText_1.default(options)];
+                case 0: return [4 /*yield*/, ocrGetElementPositionByText_1.default(options, tesseractOptions)];
                 case 1:
                     element = _b.sent();
                     _a = utils_1.determineClickPoint({ rectangles: element.dprPosition }), x = _a.x, y = _a.y;
